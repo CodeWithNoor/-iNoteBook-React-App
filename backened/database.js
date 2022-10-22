@@ -8,4 +8,4 @@ const connectToMongo = async () => {
     })
 }
 
-module.export = connectToMongo;
+module.exports = connectToMongo;
