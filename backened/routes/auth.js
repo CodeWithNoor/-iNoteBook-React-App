@@ -1,7 +1,9 @@
 const express = require("express");
 const User = require('../models/User');
 const router = express.Router();
-// ...rest of the initial code omitted for simplicity.
+const bcrypt = require('bcryptjs');  // This is bcryptjs, Which is Convert our PlaintextPassword to Hashing
+const jwt = require('jsonwebtoken'); // This is JSON Web Token We User Signin We give the User A Token, and When a User Again Login, Token Will be check
+const JWT_SECRET = "Null"; // Signature    
 const { body, validationResult } = require('express-validator');
 
 // hit the post request and send the data
@@ -51,20 +53,34 @@ router.post('/createuser', [
             return res.status(400).json({error: "Sorry a User with this email is alraedy exsist"})
         }
 
-        // create new user
-        user = await User.create({
+        // salt to protect against rainbow table attacks
+        // bcrypt.js relies on Web Crypto API's getRandomValues interface to obtain secure random numbers.
+
+        // Here plainText pass in hashing form
+        const salt= await bcrypt.genSalt(10)
+        const secPass = await bcrypt.hash(req.body.password,salt)
+
+            // create new user
+            user = await User.create({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            password: secPass,
         })
 
-        // res.json({"msg": "nice"})
-        res.json(user)
-        
-        // .then(user => res.json(user))
-        // .catch(err => {console.log(err) })
-        // res.json({err: "Please entera unique value of email", message: err.message});
+        // send a Token and id
+        const data = {
+            user:{
+                id: 'user.id'
+            }
+        }
 
+        // Synchronously sign
+        const authtoken = await jwt.sign(data, JWT_SECRET); // Generate authtoken
+        res.json({authtoken})
+
+        // res.json({"msg": "nice"})
+        // res.json(user)
+        
 
     } 
         // catch error
