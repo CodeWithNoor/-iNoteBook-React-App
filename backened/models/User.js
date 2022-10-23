@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 // Schema logical collection of database 
-
 const UserSchema = new Schema({
 
     name:{
