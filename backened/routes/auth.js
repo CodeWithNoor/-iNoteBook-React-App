@@ -16,7 +16,7 @@ router.post('/createuser', [
 
     // username must be an email
     body('name', 'Enter a valid name').isLength({ min: 3 }),
-    body('email', 'Enter a valide email').isEmail(),
+    body('email', 'Enter a valid email').isEmail(),
 
     // password must be at least 5 chars long
     body('password', 'Password must be 5 numbers').isLength({ min: 5 }),
