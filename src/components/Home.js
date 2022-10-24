@@ -1,6 +1,8 @@
 import React from 'react'
+import Notes from './Notes'
 
 export default function Home() {
+
   return (
     <div className="container my-4">
       <h2>Add Note</h2>
@@ -22,9 +24,7 @@ export default function Home() {
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
       </div>
-      <div className="container">
-        <h2>Your Note</h2>
-      </div>
+      <Notes/>
     </div>
 
   )
