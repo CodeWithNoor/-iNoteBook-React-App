@@ -3,6 +3,7 @@ import Navabr from './components/Navabr';
 import Home from './components/Home';
 import About from './components/About';
 import NoteState from './context/notes/NoteState';
+import Alert from './components/Alert';
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +18,7 @@ function App() {
       <NoteState>
           <Router>
             <Navabr />
+            <Alert message = "Acheiving goals in one day InshaaAllah"/>
         <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
