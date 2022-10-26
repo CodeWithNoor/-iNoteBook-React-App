@@ -18,7 +18,7 @@ function App() {
       <NoteState>
           <Router>
             <Navabr />
-            <Alert message = "Acheiving goals in one day InshaaAllah"/>
+            <Alert message = "Acheiving goals in one day InshaaAllah" type= "success"/>
         <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
