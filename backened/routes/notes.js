@@ -50,7 +50,7 @@ router.post('/addnotes', fetchuser, [
 })
 
 
-// ROUTE 3: Upadta an exsisting notes using: PUT:/api/notes/updatenotes/:id . No login required
+// ROUTE 3: Update an exsisting notes using: PUT:/api/notes/updatenotes/:id . No login required
 router.put('/updatenotes/:id', fetchuser, async (req, res) => {
 
     try {
