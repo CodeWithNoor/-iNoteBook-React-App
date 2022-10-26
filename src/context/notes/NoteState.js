@@ -24,11 +24,12 @@ const NoteState = (props) => {
     setNotes(json)
   }
 
-
-// ******************* addNotes ************************************
-
+  
+  // ******************* addNotes ************************************
+  
   // Add a Note
   const addNote = async (title, description, tag) => {
+  console.log("Adding a new note")
     // TODO: API Call
     // API Call 
 
@@ -41,18 +42,9 @@ const NoteState = (props) => {
       body: JSON.stringify({title, description, tag})
     });
      
+    const note = await response.json();
+    setNotes(notes.concat(note));
 
-    console.log("Adding a new note")
-    const note = {
-      "_id": "61322f119553781a8ca8d0e08",
-      "user": "6131dc5e3e4037cd4734a0664",
-      "title": title,
-      "description": description,
-      "tag": tag,
-      "date": "2021-09-03T14:20:09.668Z",
-      "__v": 0
-    };
-    setNotes(notes.concat(note))
   }
 
 
