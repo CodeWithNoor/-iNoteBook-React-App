@@ -6,14 +6,15 @@ import AddNote from './AddNote';
 const Notes = () => {
     const context = useContext(noteContext);
     const { notes, getNotes, editNote } = context;
+
     useEffect(() => {
         getNotes()
         // eslint-disable-next-line
     }, [])
 
-    const ref = useRef(null)
-    const refClose = useRef(null)
-    const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etag: "" })
+    const ref = useRef(null);
+    const refClose = useRef(null);
+    const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etag: "" });
 
     const updateNote = (currentNote) => {
         ref.current.click();
@@ -22,13 +23,13 @@ const Notes = () => {
 
     const handleClick = (e) => {
         console.log("Updating the note...", note);
-        editNote(note.id, note.etitle, note.edescription, note.etag)
+        editNote(note.id, note.etitle, note.edescription, note.etag);
         refClose.current.click();
         // e.preventDefault(); 
     }
 
     const onChange = (e) => {
-        setNote({ ...note, [e.target.name]: e.target.value })
+        setNote({ ...note, [e.target.name]: e.target.value });
     }
 
     return (
@@ -58,7 +59,6 @@ const Notes = () => {
                                     <label htmlFor="tag" className="form-label">Tag</label>
                                     <input type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} minLength={5} required />
                                 </div>
-
                             </form>
                         </div>
                         <div className="modal-footer">
@@ -83,3 +83,4 @@ const Notes = () => {
 }
 
 export default Notes
+

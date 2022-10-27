@@ -20,7 +20,7 @@ const Login = () => {
 
     if (json.success) {
       // save the auth token and redirect
-      localStorage.setItem('token', json.authtoken)   // auth-token save local storage
+      localStorage.setItem('token', json.authtoken);   // auth-token save local storage
       //replace set to true
       navigate('/', { replace: true });
     }
@@ -30,7 +30,7 @@ const Login = () => {
   }
 
   const onChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value })
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
   }
 
   return (
@@ -50,8 +50,10 @@ const Login = () => {
         </div>
         <button type="submit" className="btn btn-primary btn-sm">Submit</button>
       </form>
+
     </div>
   )
 }
 
 export default Login
+

@@ -1,20 +1,20 @@
-import React, { useState }  from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [credentials, setCredentials] = useState({name: "", email: "", password: "", cpassword: "" })
+  const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
 
-  
+
   const handleClickSubmit = async (e) => {
-  const {name, email, password} = credentials;
+    const { name, email, password } = credentials;
     e.preventDefault();
     const response = await fetch("http://localhost:5000/api/auth/createuser", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({name, email, password})
+      body: JSON.stringify({ name, email, password })
     });
 
     const json = await response.json();
@@ -32,7 +32,7 @@ const Signup = () => {
   }
 
   const onChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value })
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
   }
 
   return (
@@ -42,19 +42,19 @@ const Signup = () => {
       <hr />
 
       <form className='container my-5' onSubmit={handleClickSubmit}>
-      <div className="mb-3">
+        <div className="mb-3">
           <label htmlFor="name" className="form-label">Name</label>
           <input type="password" className="form-control" id="name" name="name" value={credentials.name} onChange={onChange} />
         </div>
 
         <div className="mb-3">
           <label htmlFor="email" className="form-label">Email address</label>
-          <input type="email" className="form-control" id="email" name="email"  value={credentials.email} onChange={onChange}  aria-describedby="emailHelp" />
+          <input type="email" className="form-control" id="email" name="email" value={credentials.email} onChange={onChange} aria-describedby="emailHelp" />
           <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div className="mb-3">
           <label htmlFor="password" className="form-label">Password</label>
-          <input type="password" className="form-control" id="password" name="password"  value={credentials.password} onChange={onChange} minLength={5} required/>
+          <input type="password" className="form-control" id="password" name="password" value={credentials.password} onChange={onChange} minLength={5} required />
         </div>
 
         <div className="mb-3">
@@ -63,13 +63,13 @@ const Signup = () => {
         </div>
 
         <div className="my-4">
-        {/* <button type="button" className="btn btn-primary btn-sm mx-1">Cancel Button</button> */}
-        <button type="submit" className="btn btn-primary btn-sm mx-1">Submit</button>
+          {/* <button type="button" className="btn btn-primary btn-sm mx-1">Cancel Button</button> */}
+          <button type="submit" className="btn btn-primary btn-sm mx-1">Submit</button>
         </div>
-
       </form>
     </div>
   )
 }
 
 export default Signup
+

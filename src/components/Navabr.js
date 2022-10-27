@@ -1,13 +1,14 @@
-import React, {useEffect} from 'react'
-import { Link,  useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom';
 
 
 export default function Navabr() {
     let location = useLocation();
+
+    useEffect(() => {
+        console.log(location.pathname);
+    }, [location]);
     
-      useEffect(() => {
-        console.log(location.pathname)
-      }, [location]);
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,8 +27,8 @@ export default function Navabr() {
                             </li>
                         </ul>
                         <form className="d-flex" role="search">
-                        <Link className="btn btn-primary btn-sm mx-2" to="/Login" role="button">LogIn</Link>
-                        <Link className="btn btn-primary btn-sm mx-2" to="/Signup" role="button">SignUp</Link>
+                            <Link className="btn btn-primary btn-sm mx-2" to="/Login" role="button">LogIn</Link>
+                            <Link className="btn btn-primary btn-sm mx-2" to="/Signup" role="button">SignUp</Link>
                         </form>
                     </div>
                 </div>
