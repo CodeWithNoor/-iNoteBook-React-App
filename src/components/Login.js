@@ -50,10 +50,10 @@ const Login = () => {
         </div>
         <button type="submit" className="btn btn-primary btn-sm">Submit</button>
       </form>
-
     </div>
   )
 }
 
-export default Login
+export default Login;
+
 
