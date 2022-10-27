@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -71,5 +71,5 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Signup;
 
