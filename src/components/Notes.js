@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import noteContext from "../context/notes/noteContext"
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import noteContext from "../context/notes/noteContext";
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 
@@ -82,5 +82,5 @@ const Notes = () => {
     )
 }
 
-export default Notes
+export default Notes;
 
