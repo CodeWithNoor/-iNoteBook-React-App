@@ -38,7 +38,7 @@ const Signup = (props) => {
 
   return (
     <div className='container'>
-      <h3><strong>Sign Up</strong></h3>
+      <h3><strong>Create an Account to use iNoteBook</strong></h3>
       <p>Please fill in this form to create an account.</p>
       <hr />
 
