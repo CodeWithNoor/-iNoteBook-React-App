@@ -6,6 +6,7 @@ import NoteState from './context/notes/NoteState';
 import Alert from './components/Alert';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import { useState } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,6 +14,18 @@ import {
 } from "react-router-dom";
 
 function App() {
+
+  const [alert, setAlert] = useState(null);
+  const showAlert = (AlertMessage, AlertType) => {
+    setAlert({
+      message: AlertMessage,
+      type: AlertType,
+    });
+    setTimeout(() => {
+      setAlert(alert);
+    }, 3000);
+  };
+
   return (
     <>
       {/* A <Routes> looks through its children <Route>s and
@@ -20,13 +33,13 @@ function App() {
       <NoteState>
           <Router>
             <Navabr />
-            <Alert message = "Acheiving goals in one day InshaaAllah" type= "success"/>
+            <Alert Alert={alert}/>
         <div className="container">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home showAlert={showAlert}/>} />
               <Route path="/about" element={<About />} />
-              <Route path="/Login" element={<Login />} />
-              <Route path="/Signup" element={<Signup />} />
+              <Route path="/Login" element={<Login showAlert={showAlert}/>} />
+              <Route path="/Signup" element={<Signup showAlert={showAlert}/>} />
             </Routes>
         </div>
           </Router>

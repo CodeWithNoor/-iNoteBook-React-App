@@ -54,7 +54,7 @@ router.post('/createuser', [
         // console.log(user)
 
         if (user) {
-            return res.status(400).json({success, error: "Sorry a User with this email is alraedy exsist" })
+            return res.status(400).json({success, error: "Sorry a User with this email is already exsist" })
         }
 
         // salt to protect against rainbow table attacks
