@@ -21,9 +21,9 @@ const Login = (props) => {
     if (json.success) {
       // save the auth token and redirect
       localStorage.setItem('token', json.authtoken);   // auth-token save local storage
-      //replace set to true
-      navigate('/', { replace: true });
       props.showAlert('Logged in Successfully', 'success')
+      //replace set to true
+      navigate('/', { replace: true }); // redirect
     }
     else {
       props.showAlert('Invalid credentials', 'danger');   // JavaScript native alert
@@ -36,7 +36,7 @@ const Login = (props) => {
 
   return (
     <div className='container'>
-      <h3><strong>Login</strong></h3>
+      <h3><strong>Login to Continue to iNoteBook</strong></h3>
       <hr />
 
       <form className='container my-5' onSubmit={handleClickSubmit}>
