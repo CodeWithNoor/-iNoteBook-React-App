@@ -4,7 +4,7 @@
     if(action.type === 'deposite'){
         return state + action.payload;
     }
-    else if(action.type === 'withdarw'){
+    else if(action.type === 'withdraw'){
         return state - action.payload;
     }
     else{
