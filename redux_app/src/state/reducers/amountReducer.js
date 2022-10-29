@@ -1,11 +1,15 @@
-export default reducerMoney = (state=0, action) => {
-    if(action.type = 'deposite'){
-        return state + action;
+// Reducer is a function they take the state so far and the action, and return the next state.
+
+ const reducer = (state=0, action) => {
+    if(action.type === 'deposite'){
+        return state + action.payload;
     }
-    else if(action.type = 'withdarw'){
-        return state - action;
+    else if(action.type === 'withdarw'){
+        return state - action.payload;
     }
     else{
         return state;
     }
 }
+
+export default reducer
